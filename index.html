@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Alogistica — Tu carga, tu ruta, tu conexión</title>
+
+  <!-- SEO / Social -->
+  <meta name="description" content="Alogistica conecta personas, empresas y transportistas en España. Conexión directa y humana para mover mercancías con sencillez." />
+  <meta property="og:title" content="Alogistica — Tu carga, tu ruta, tu conexión" />
+  <meta property="og:description" content="Conecta con transportistas reales — sin intermediarios. Empieza en minutos." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_ES" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg-1: #0b0f14;
+      --bg-2: #07121a;
+      --neon: #00E0C6;
+      --accent: #FFB300;
+      --muted: #9fb0bd;
+      --card: #0f1720;
+      --glass: rgba(255,255,255,0.03);
+      --radius: 14px;
+      --shadow: 0 8px 30px rgba(2,6,23,0.6);
+      --ease: cubic-bezier(.2,.9,.3,1);
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 100%);
+      color: #e8eef0;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      overflow-x:hidden;
+    }
+
+    /* Layout */
+    header{
+      padding:4rem 1.25rem 2.5rem;
+      position:relative;
+      text-align:center;
+      overflow:visible;
+    }
+    .hero {
+      max-width:1100px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:32px;
+      align-items:center;
+      padding:0 12px;
+    }
+
+    /* Hero text */
+    .kicker{
+      display:inline-block;
+      background:linear-gradient(90deg, rgba(0,224,198,0.12), rgba(255,179,0,0.08));
+      color:var(--neon);
+      padding:6px 10px;
+      border-radius:999px;
+      font-weight:600;
+      font-size:0.9rem;
+      margin-bottom:14px;
+      letter-spacing:0.2px;
+    }
+    h1{
+      font-size:clamp(1.9rem,4.6vw,3.2rem);
+      margin:0 0 12px 0;
+      color:var(--neon);
+      line-height:1.02;
+    }
+    p.lead{
+      margin:0 0 18px 0;
+      color:var(--muted);
+      font-size:1.05rem;
+      max-width:46ch;
+    }
+
+    /* CTA group */
+    .cta-row{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .btn-primary{
+      background:linear-gradient(90deg,var(--accent), #ff9f00);
+      color:#07121a;
+      padding:12px 18px;
+      border-radius:999px;
+      font-weight:700;
+      text-decoration:none;
+      box-shadow:0 10px 30px rgba(255,179,0,0.12);
+      transition:transform .22s var(--ease),box-shadow .22s var(--ease);
+    }
+    .btn-primary:hover{ transform:translateY(-4px) scale(1.02); box-shadow:0 18px 40px rgba(255,179,0,0.18); }
+    .btn-ghost{
+      border:1px solid rgba(255,255,255,0.06);
+      color:var(--neon);
+      padding:10px 14px;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:600;
+      background:transparent;
+      transition:transform .22s var(--ease),background .18s var(--ease);
+    }
+    .btn-ghost:hover{ background: rgba(255,255,255,0.02); transform:translateY(-3px); }
+
+    /* Card / visual */
+    .visual-card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(255,255,255,0.03);
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      align-items:stretch;
+      min-width:0;
+    }
+    .visual-canvas{
+      width:100%;
+      height:220px;
+      border-radius:10px;
+      overflow:hidden;
+      background:linear-gradient(90deg, rgba(0,224,198,0.06), rgba(255,179,0,0.02));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .visual-info{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:center;
+    }
+    .pill{ font-weight:700; color:#07121a; background:var(--neon); padding:6px 10px; border-radius:999px; }
+
+    /* Features */
+    main{ max-width:1100px; margin:0 auto; padding:2.25rem 1.25rem 5rem; }
+    .features{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:18px;
+    }
+    .feature{
+      background:linear-gradient(180deg,#0b1419 0%, #07121a 100%);
+      padding:18px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.03);
+      box-shadow:0 8px 24px rgba(2,6,23,0.5);
+      transition:transform .22s var(--ease);
+    }
+    .feature:hover{ transform:translateY(-6px); }
+    .feature h3{ margin:0 0 8px 0; color:var(--accent); font-size:1.05rem; }
+    .feature p{ margin:0; color:var(--muted); font-size:0.98rem; }
+
+    /* Honest note */
+    .honest{
+      margin-top:28px;
+      padding:14px 16px;
+      background:linear-gradient(90deg, rgba(0,224,198,0.03), rgba(255,179,0,0.02));
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.02);
+      color:var(--muted);
+      font-size:0.95rem;
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+
+    /* Footer */
+    footer{
+      margin-top:3.5rem;
+      padding:2.25rem 1.25rem;
+      border-top:1px solid rgba(255,255,255,0.03);
+      text-align:center;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+    footer a{ color:var(--neon); text-decoration:none; font-weight:600; }
+    footer a:hover{text-decoration:underline}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero{ grid-template-columns:1fr; }
+      .visual-canvas{ height:190px; }
+      .features{ grid-template-columns:repeat(1,1fr) }
+    }
+
+    /* Motion preferences */
+    @media (prefers-reduced-motion: reduce) {
+      .btn-primary, .btn-ghost, .feature, .visual-card { transition: none !important; animation: none !important; }
+    }
+
+    /* small utility */
+    .muted{ color:var(--muted); font-size:0.95rem; }
+    .small{ font-size:0.9rem; color:var(--muted); }
+
+    /* Reveal animation (will be disabled if reduced motion) */
+    .reveal{ opacity:0; transform: translateY(10px); transition: opacity .55s var(--ease), transform .55s var(--ease); }
+    .reveal.visible{ opacity:1; transform:none; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="hero" role="banner">
+      <div>
+        <span class="kicker">Alogistica</span>
+        <h1>Tu carga. Tu ruta. Conexión humana.</h1>
+        <p class="lead">Conectamos a quien necesita enviar con transportistas reales — sin intermediarios, directo y claro. Empieza hoy y comprueba lo sencillo que puede ser mover mercancías.</p>
+
+        <div class="cta-row" role="group" aria-label="Llamadas a la acción">
+          <a class="btn-primary" href="https://forms.gle/R6Te75zXRFaqUhNq9" target="_blank" rel="noopener">Empezar — rellenar formulario</a>
+          <a class="btn-ghost" href="mailto:altrologistica@gmail.com">Contactar por email</a>
+        </div>
+
+        <div class="honest" aria-live="polite">
+          <strong style="color:var(--neon)">Nota honesta</strong>
+          <div class="small">A día de hoy la red está en crecimiento. No hay cifras infladas: queremos construir relaciones reales con conductores y empresas desde cero.</div>
+        </div>
+      </div>
+
+      <aside class="visual-card" aria-hidden="false">
+        <div class="visual-canvas" id="visualCanvas" role="img" aria-label="Animación representando rutas y un camión en movimiento">
+          <!-- SVG minimalista como "mascota" visual -->
+          <svg id="truckSVG" width="100%" height="100%" viewBox="0 0 600 220" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1">
+                <stop offset="0" stop-color="#00E0C6" stop-opacity="0.95"/>
+                <stop offset="1" stop-color="#FFB300" stop-opacity="0.95"/>
+              </linearGradient>
+              <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="8" result="b"/>
+                <feBlend in="SourceGraphic" in2="b"/>
+              </filter>
+            </defs>
+
+            <!-- simple road -->
+            <rect x="0" y="150" width="600" height="60" rx="6" fill="#07121a"/>
+            <g id="truckGroup" transform="translate(-140,0)">
+              <rect x="140" y="88" width="120" height="42" rx="6" fill="url(#g1)" />
+              <rect x="220" y="74" width="60" height="36" rx="6" fill="#06202A" />
+              <circle cx="170" cy="136" r="12" fill="#0b0f14" stroke="#222" stroke-width="4"/>
+              <circle cx="250" cy="136" r="12" fill="#0b0f14" stroke="#222" stroke-width="4"/>
+            </g>
+
+            <!-- route lines -->
+            <g id="routes" stroke="rgba(0,224,198,0.14)" stroke-width="2" fill="none">
+              <path d="M20 120 Q120 40 240 120 T460 120" stroke-linecap="round"/>
+            </g>
+          </svg>
+        </div>
+
+        <div class="visual-info">
+          <div>
+            <div class="muted">Listo para</div>
+            <div class="pill">Conectar</div>
+          </div>
+          <div style="text-align:right;">
+            <div class="muted">Contacto</div>
+            <div class="small"><a href="mailto:altrologistica@gmail.com" style="color:var(--neon); text-decoration:none">altrologistica@gmail.com</a></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <main role="main">
+    <section aria-labelledby="servicios">
+      <h2 id="servicios" class="reveal">¿A quién ayudamos?</h2>
+      <p class="muted reveal">Alogistica conecta personas, empresas y conductores en España con una propuesta clara: conexión directa, trato humano y control sobre la operación.</p>
+
+      <div class="features" style="margin-top:18px">
+        <div class="feature reveal" tabindex="0">
+          <h3>Para conductores</h3>
+          <p>Oportunidades reales publicadas en la plataforma. Sin comisiones ocultas: transparencia para que puedas decidir.</p>
+        </div>
+        <div class="feature reveal" tabindex="0">
+          <h3>Para empresas y particulares</h3>
+          <p>Publica tu necesidad de transporte y recibe propuestas de conductores verificados. Tú eliges la opción que mejor encaje.</p>
+        </div>
+        <div class="feature reveal" tabindex="0">
+          <h3>Soporte humano</h3>
+          <p>Atención por WhatsApp y correo. Acompañamiento para completar el formulario o resolver dudas durante el proceso.</p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="por-que" style="margin-top:36px">
+      <h2 id="por-que" class="reveal">Por qué lo hacemos</h2>
+      <p class="muted reveal">Porque mover mercancías debe ser sencillo, justo y directo. Empezamos desde cero para construir una red responsable y sostenible, provincia por provincia.</p>
+
+      <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:18px" class="reveal">
+        <a class="btn-primary" href="https://forms.gle/R6Te75zXRFaqUhNq9" target="_blank" rel="noopener">Quiero unirme</a>
+        <a class="btn-ghost" href="https://wa.me/34656339496" target="_blank" rel="noopener">Hablar por WhatsApp</a>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div style="max-width:1100px;margin:0 auto">
+      <div style="display:flex;flex-direction:row;gap:18px;justify-content:center;align-items:center;flex-wrap:wrap">
+        <div>📍 Operamos en toda España</div>
+        <div>•</div>
+        <div>📧 <a href="mailto:altrologistica@gmail.com">altrologistica@gmail.com</a></div>
+      </div>
+
+      <p style="margin-top:14px" class="small">© <time datetime="2025">2025</time> Alogistica — Construyendo una red justa y humana. Sin cifras infladas: lo que ves es real.</p>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp button -->
+  <a class="whatsapp" href="https://wa.me/34656339496" aria-label="Contactar por WhatsApp" target="_blank" rel="noopener" style="position:fixed;right:20px;bottom:20px;background:#25D366;border-radius:18px;padding:12px 14px;box-shadow:0 14px 40px rgba(37,211,102,0.12);text-decoration:none;color:#072026;font-weight:700;">💬</a>
+
+  <script>
+    // ============================
+    // Animaciones y comportamiento
+    // ============================
+    (function(){
+      const truck = document.getElementById('truckGroup');
+      const routes = document.getElementById('routes');
+      let pos = -160;
+      let rafId = null;
+      let running = true;
+
+      function step(){
+        if(!running) return;
+        pos += 1.6;
+        if(pos > 760) pos = -160;
+        truck.setAttribute('transform', `translate(${pos},0)`);
+        // ligerísimo "parpadeo" en ruta para dar vida
+        routes.style.opacity = 0.3 + 0.2 * Math.sin(pos * 0.03);
+        rafId = requestAnimationFrame(step);
+      }
+
+      function start(){ if(!rafId){ running=true; step(); } }
+      function stop(){ running=false; if(rafId){ cancelAnimationFrame(rafId); rafId=null; } }
+
+      // pausa cuando la pestaña no está visible para ahorrar CPU
+      document.addEventListener('visibilitychange', () => {
+        if(document.hidden) stop();
+        else start();
+      });
+
+      // reduce motion respect
+      const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if(media && media.matches){ /* no animaciones */ running=false; }
+      else start();
+
+      // IntersectionObserver para revelado progresivo
+      const reveals = Array.from(document.querySelectorAll('.reveal'));
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(ent => {
+          if(ent.isIntersecting){
+            ent.target.classList.add('visible');
+            io.unobserve(ent.target);
+          }
+        });
+      }, {threshold: 0.12});
+      reveals.forEach(el => io.observe(el));
+
+      // small: keyboard focus outline improvement
+      function handleFirstTab(e) {
+        if(e.key === 'Tab') {
+          document.documentElement.classList.add('user-is-tabbing');
+          window.removeEventListener('keydown', handleFirstTab);
+        }
+      }
+      window.addEventListener('keydown', handleFirstTab);
+    })();
+  </script>
+</body>
+</html>
